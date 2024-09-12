@@ -1,0 +1,78 @@
+<html>
+<head>
+    <title>Login</title>
+    <link rel="stylesheet" href="login.css">
+    <script src="https://www.google.com/recaptcha/api.js?render=6LcmS0gpAAAAACD4bCAGmUMnTQOM4ZI0JMcHBd4v"></script>
+
+</head>
+<body>
+
+    <div class="center">
+        
+        <div class="form-box1">
+            <H2> Welcome to.... </H2>
+            <h3> Cake By ANU</h3>
+            <img src="image/backlog.png" alt="">
+        </div>
+        
+        <div class="form-box">
+            <h1>Login</h1>
+            <div class="button-box">    
+                <div id="btn"></div>
+                <button type="button" class="toggle-btn" onclick="userlogin1()">User</button>
+                <button type="button" class="toggle-btn" onclick="Proffesionallogin2()">Proffesional</button>
+            </div> 
+            <form method="POST" action="index.html" id="userlogin" class="input-group">
+                <input name="User_Email" type="text" class="input-field" placeholder="Email Address" required>
+                <input name="User_Password" type="password" class="input-field" placeholder="Password" required>
+                <div class="pass">Forgot Password?</div>
+                <button type="submit" class="submit-btn"> Login</button>
+                <div class="signup_link">
+                    <a href="signup.html">Create an Account</a>
+
+                </div>
+            </form>
+            <form method="POST" action="index.html" id="Proffesionallogin" class="input-group">
+                
+                <input name="Prof_Email" type="text" class="input-field" placeholder="Email Address" required>
+                <input name="Prof_Password" type="password" class="input-field" placeholder="Password" required>
+
+                <div class="pass">Forgot Password?</div>
+                <button type="submit" class="submit-btn"> Login</button>
+                <div class="signup_link">
+                    <a href="signup.html">Create an Account</a>
+
+                </div>
+                <input type="hidden" name="recaptchaToken" id="recaptchaToken">
+            </form>
+        </div> 
+ 
+    </div>
+    <script>
+        var x = document.getElementById("userlogin");
+        var y = document.getElementById("Proffesionallogin");
+        var z = document.getElementById("btn");
+
+        function Proffesionallogin2(){
+          x.style.left = "-400px";
+          y.style.left = "50px";
+          z.style.left = "110px";
+        }
+        function userlogin1(){
+          x.style.left = "50px";
+          y.style.left = "450px";
+          z.style.left = "0px";
+        }
+    </script>
+
+<script>
+    grecaptcha.ready(function() {
+        grecaptcha.execute('6LcmS0gpAAAAACD4bCAGmUMnTQOM4ZI0JMcHBd4v', {action: 'process_signup.php'})
+            .then(function(token) {
+                // Include the token in your form submission
+                console.log("recaptchaToken:", token);
+            });
+    });
+</script>
+</body>
+</html>
